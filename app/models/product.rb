@@ -7,6 +7,20 @@ class Product < ApplicationRecord
     message: 'must be a gif, hpg or png'
   }
 
+  has_many :line_items
+  before_destroy :ensure_not_referenced_by_line_item
+
+  private
+
+    def ensure_not_referenced_by_line_item
+      if line_items.empty?
+        return true
+      else
+        errors.add(:base, 'Line Items Present')
+        return false
+      end
+    end
+
   def self.latest
     Product.order(:updated_at).last
   end
