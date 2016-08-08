@@ -10,13 +10,16 @@
 
   <body class = <%= controller.controller_name %> >
     <div id = "banner">
-      <h2>
+      <h1>
         <%= @page_title || "pragmatic bookshelf" %>
-      </h2>
+      </h1>
     </div>
     <div id = "columns">
       <div id = "side">
         <ul>
+          <span id = "date">
+            <%= Time.now %>
+          </span>
           <li><a href = "#"> Home </a></li>
           <li><a href = "#"> Questions </a></li>
           <li><a href = "#"> News </a></li>
