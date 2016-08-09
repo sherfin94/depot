@@ -4,6 +4,6 @@
 <h2>Your Pragmatic Cart</h2>
 <ul>
   <% @cart.line_items.each do |item| %>
-  <li><%= item.product.title %></li>
+  <li><%= item.product.title %>&nbsp&nbsp&nbsp<%= item.quantity %></li>
   <% end %>
 </ul>
