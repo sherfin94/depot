@@ -6,13 +6,14 @@
 #
 default: &default
   adapter: postgresql
-  database: my_db
+  database: veredb
   pool: 5
   timeout: 5000
+  username: imac7
+  password: mdm1316
 
 development:
   <<: *default
-  database: my_db
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
