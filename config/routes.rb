@@ -4,6 +4,18 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   get 'sessions/create'
+  post 'sessions/create'
+
+  get 'admin', to: 'admin#index'
+
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+  #controller :sessions do
+  #  get 'login' => :new
+  #  post 'login' => :create
+  #  delete 'logout' => :destroy
+  #end
 
   get 'sessions/destroy'
 
