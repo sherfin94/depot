@@ -11,8 +11,15 @@
   <body class = <%= controller.controller_name %> >
     <div id = "banner">
       <h1>
-        <%= @page_title || "pragmatic bookshelf" %>
+        <%= @page_title || t('.title') %>
+        <%= form_tag store_path, class: 'locale' do %>
+          <%= select_tag 'set_locale',
+            options_for_select(LANGUAGES, I18n.locale.to_s),
+            onchange: 'this.form.submit()'
+            %>
+        <% end %>
       </h1>
+
     </div>
     <div id = "columns">
       <div id = "side">
@@ -41,10 +48,10 @@
           <span id = "date">
             <%= Time.now %>
           </span>
-          <li><a href = "#"> Home </a></li>
-          <li><a href = "#"> Questions </a></li>
-          <li><a href = "#"> News </a></li>
-          <li><a href = "#"> Contact </a></li>
+          <li><a href = "#"> <%= t('.home') %></a></li>
+          <li><a href = "#"> <%= t('.questions') %></a></li>
+          <li><a href = "#"> <%= t('.news') %></a></li>
+          <li><a href = "#"> <%= t('.contacts') %></a></li>
         </ul>
       </div>
       <div id = "main">

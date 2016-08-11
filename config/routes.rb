@@ -20,12 +20,18 @@ Rails.application.routes.draw do
   get 'sessions/destroy'
 
   resources :users
-  resources :orders
-  resources :line_items
-  resources :carts
   get 'store/index'
-
   resources :products
+
+  scope '(:locale)' do
+    resources :orders
+    resources :line_items
+    resources :carts
+    root 'store#index', as: 'store', via: :all
+  end
+
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'store#index', as: 'store'
+  #root 'store#index', as: 'store'
 end
