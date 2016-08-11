@@ -18,11 +18,13 @@
       <div id = "side">
         <div id = "cart"
 
-          <% if @cart.line_items.empty? %>
+          <% if @cart and @cart.line_items.empty? %>
             style = "display:none;"
           <% end %>
         >
-        <%= render @cart %>
+        <% if @cart %>
+          <%= render @cart %>
+        <% end %>
       </div>
         <ul>
           <span id = "date">
