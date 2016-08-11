@@ -7,7 +7,7 @@ class Cart < ApplicationRecord
     if not current_item.nil?
       current_item.quantity += 1
     else
-      current_item = line_items.build(product_id: product_id)
+      current_item = line_items.build(product_id: product_id, order_id: 1)
       current_item.quantity = 1
     end
     current_item
